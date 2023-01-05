@@ -1,0 +1,47 @@
+[global_config]
+  enabled_plugins = LaunchpadCodeURLHandler, APTURLHandler, MavenPluginURLHandler, LaunchpadBugURLHandler
+[keybindings]
+  new_tab = <Primary><Alt>t
+  split_horiz = <Primary><Alt>h
+  split_vert = <Primary><Alt>v
+  page_up = <Primary><Alt>Page_Up
+  page_up_half = <Primary><Alt>Page_Down
+  line_up = <Primary><Alt>Up
+  line_down = <Primary><Alt>Down
+  move_tab_right = <Primary><Alt>r
+  move_tab_left = <Primary><Alt>l
+  next_tab = <Primary><Alt>n
+[profiles]
+  [[default]]
+    background_darkness = 0.8
+    background_type = transparent
+    font = Source Code Pro for Powerline 11
+    show_titlebar = False
+    scrollback_lines = 5000
+    copy_on_selection = True
+  [[Future]]
+    background_darkness = 0.8
+    background_type = transparent
+    font = Unispace 11
+    foreground_color = "#0064fa"
+    scrollbar_position = hidden
+    use_system_font = False
+  [[High Contrast]]
+    background_color = "#ffffff"
+    foreground_color = "#000000"
+  [[Streaming]]
+    background_color = "#0e0e0e"
+    foreground_color = "#d3d7cf"
+    scrollbar_position = hidden
+    palette = "#000000:#cc0000:#4e9a06:#c4a000:#3465a4:#75507b:#06989a:#d3d7cf:#555753:#ef2929:#8ae234:#fce94f:#729fcf:#ad7fa8:#34e2e2:#eeeeec"
+[layouts]
+  [[default]]
+    [[[child1]]]
+      parent = window0
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
+      size = 908, 689
+      position = 480:137
+[plugins]

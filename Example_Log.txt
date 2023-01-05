@@ -1,0 +1,500 @@
+ Wed 04 Jan 2023 01:31:41 PM CST 
+
+ 
+~~ Necessary packages ~~
+ ~ apt-transport-https curl wget git xclip mlocate vim-gtk3 terminator zsh fish bat tldr 
+
+
+~~ Unnecessary packages ~~
+ ~ toilet figlet cowsay fortune lolcat boxes 
+
+ 
+~~ Iptables added. To verify run: ~~
+ ~ sudo iptables -L -v
+
+~~ Also added to /configs/iptables.sh: ~~
+ 
+#!/bin/bash
+
+command iptables -P INPUT ACCEPT
+command iptables -F
+command iptables -A INPUT -i lo -j ACCEPT
+command iptables -A INPUT -i eno2 -j ACCEPT
+command iptables -A INPUT -p tcp --dport 20000 -j ACCEPT
+command iptables -A INPUT -p tcp --dport 20010 -j ACCEPT
+command iptables -A OUTPUT -p udp --dport 53 --sport 1024:65535 -j ACCEPT
+command iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+command iptables -P INPUT DROP
+command iptables -P FORWARD DROP
+command iptables -P OUTPUT ACCEPT
+
+ 
+~~ Brave ~~
+ ~~ Files Added: ~~
+ ~ /usr/share/keyrings/brave-browser-archive-keyring.gpg 
+ ~ /etc/apt/sources.list.d/brave-browser-release.list
+~~ Package installed ~~
+ ~ brave-browser
+
+ 
+~~ VSCode ~~
+ ~~ Files Added: ~~
+ ~ /usr/share/keyrings/packages.microsoft.gpg 
+ ~ /etc/apt/sources.list.d/vscode.list
+~~ Package installed ~~
+ ~ code
+
+ 
+~~ Additional packages ~~
+ ~ libpam-tmpdir apt-listchanges debsums apt-show-versions sysstat auditd chkrootkit rkhunter unhide fail2ban unattended-upgrades acct arpwatch shellcheck vlc xpad tor sqlite3 sqlitebrowser python3-pip python3-virtualenv iptables-persistent 
+
+
+~~ Unattended-upgrades activated ~~ 
+
+~~ Copied: ~~
+ ~/etc/apt/apt.conf.d/50unattended-upgrades to /etc/apt/apt.conf.d/52unattended-upgrades-local
+
+~~ Copied: ~~
+ ~ /config/02periodic to /etc/apt/apt.conf.d/02periodic 
+
+~~ Content: ~~
+ 
+// Control parameters for cron jobs by /etc/cron.daily/apt-compat //
+
+
+// Enable the update/upgrade script (0=disable)
+APT::Periodic::Enable "1";
+
+
+// Do "apt-get update" automatically every n-days (0=disable)
+APT::Periodic::Update-Package-Lists "1";
+
+
+// Do "apt-get upgrade --download-only" every n-days (0=disable)
+APT::Periodic::Download-Upgradeable-Packages "1";
+
+
+// Run the "unattended-upgrade" security upgrade script
+// every n-days (0=disabled)
+// Requires the package "unattended-upgrades" and will write
+// a log in /var/log/unattended-upgrades
+APT::Periodic::Unattended-Upgrade "1";
+
+
+// Do "apt-get autoclean" every n-days (0=disable)
+APT::Periodic::AutocleanInterval "21";
+
+
+// Send report mail to root
+//     0:  no report             (or null string)
+//     1:  progress report       (actually any string)
+//     2:  + command outputs     (remove -qq, remove 2>/dev/null, add -d)
+//     3:  + trace on
+APT::Periodic::Verbose "2";
+
+~~ Rules added to: ~~ 
+ ~ /etc/apt/apt.conf.d/52unattended-upgrades-local 
+  
+Unattended-Upgrade::Remove-New-Unused-Dependencies "true";
+Unattended-Upgrade::Remove-Unused-Dependencies "true";
+Unattended-Upgrade::AutoFixInterruptedDpkg "true";
+
+
+~~ Services enabled on reboot ~~
+ ~ arpwatch auditd fail2ban sysstat unattended-upgrades
+
+
+~~ Services disabled on reboot ~~
+ ~ cups cups-browsed ufw
+
+
+~~ Services started ~~
+ ~ auditd fail2ban sysstat unattended-upgrades
+
+
+~~ Services stopped ~~
+ ~ cups cups-browsed ufw 
+
+
+~~ Arpwatch ~~
+
+~~ Interface added: ~~
+ ~ enp0s3 
+
+
+~~ Rules added to: ~~
+ ~ /etc/arpwatch/enp0s3.iface 
+  
+INTERFACES="enp0s3"
+ARGS="-N -p"
+
+
+~~ Service enabled on reboot ~~
+ ~ arpwatch@enp0s3
+
+
+~~ Service started ~~
+ ~ arpwatch@enp0s3 
+
+
+~~ Auditctl ~~
+
+~~ Rules added to: ~~
+ ~ /etc/audit/rules.d/audit.rules 
+  
+-w /etc/passwd -p rwxa -k passwd_access
+-w /etc/shadow -p rwxa -k shadow_access
+-w /etc/gshadow -p rwxa -k gshadow_access
+-w /etc/hosts -p wa -k hosts_file_change
+
+
+~~ Banners added too: ~~
+ ~ /etc/motd
+ ~ /etc/issue
+ ~ /etc/issue.net
+
+~~ Content: ~~
+  
++----------------------------------------------------+
+  | This is a controlled access system. The activities |
+  | on this system are monitored.                      |
+  | Evidence of unauthorised activities may be         |
+  | disclosed to the appropriate authorities.          |
+  +----------------------------------------------------+
+
+  Installing Zsh and Oh-my-zsh  
+
+
+ [++]  /usr/bin/zsh found - root + all user shells converted to zsh.  
+
+
+ ~~ Shell changed to zsh. Please log out and log back in to finalize the process. ~~  
+
+ Wed 04 Jan 2023 01:34:50 PM CST 
+
+
+
+ Wed 04 Jan 2023 01:34:52 PM CST 
+
+
+  Installing Rust  
+
+
+  [++] Rust installation - complete 
+
+ Installing Rustscan  
+
+
+  [++] Rustscan installation - complete 
+
+ Installing Feroxbuster  
+
+
+  [++] Feroxbuster installation - complete 
+
+
+  Installing Zsh and Oh-my-zsh  
+
+
+ ~~ Shell changed to zsh. Please log out and log back in to finalize the process. ~~  
+
+
+
+ Wed 04 Jan 2023 01:39:29 PM CST 
+
+
+
+~~ Directory for corvus created at:
+ ~ /home/corvus/.local/bin                                                                                                                                                                                                                  
+
+
+~~ Symbolic link created for bat: ~~                                                                                                                                                                                                        
+ ~ ln -s /usr/bin/batcat /home/corvus/.local/bin/bat                                                                                                                                                                                        
+
+
+~~ Symbolic link created for bat: ~~                                                                                                                                                                                                        
+ ~ ln -s /usr/bin/batcat /usr/local/bin/bat                                                                                                                                                                                                 
+
+
+~~ Path appended to:
+ ~ /home/corvus/.zshrc                                                                                                                                                                                                                      
+
+~~ Content: ~~                                                                                                                                                                                                                              
+ 
+~ export PATH="$HOME/.local/bin:$PATH"
+
+
+~~ Root directory created: ~~
+ ~ /root/.local/bin                                                                                                                                                                                                                         
+
+
+~~ Symbolic link created for bat: ~~                                                                                                                                                                                                        
+ ~ ln -s /usr/bin/batcat /root/.local/bin/bat                                                                                                                                                                                               
+
+
+~~ Path appended to:
+ ~ /root/.bashrc                                                                                                                                                                                                                            
+
+~~ Content: ~~                                                                                                                                                                                                                              
+ 
+~ export PATH="${HOME}/.local/bin:${PATH}"
+
+
+~~ Path appended to:
+ ~ /root/.zshrc                                                                                                                                                                                                                             
+
+~~ Content: ~~                                                                                                                                                                                                                              
+ 
+~ export PATH="${HOME}/.local/bin:${PATH}"
+
+
+~~ Path appended to:
+ ~ /home/corvus/.zshrc                                                                                                                                                                                                                      
+
+~~ Content: ~~                                                                                                                                                                                                                              
+ 
+~ export PATH="${HOME}/.cargo/bin:${PATH}"
+
+
+~~ Path appended to:
+ ~ /root/.bashrc                                                                                                                                                                                                                            
+
+~~ Content: ~~                                                                                                                                                                                                                              
+ 
+~ export PATH="/home/corvus/.cargo/bin:$PATH"
+
+
+~~ Path appended to:
+ ~ /root/.zshrc                                                                                                                                                                                                                             
+
+~~ Content: ~~                                                                                                                                                                                                                              
+ 
+~ export PATH="/home/corvus/.cargo/bin:$PATH"
+
+
+~~ Terminator configs ~~
+
+ ~~ Directory created: ~~                                                                                                                                                                                                                   
+ ~ /home/corvus/.config/terminator                                                                                                                                                                                                          
+
+~~ Configuration file added to: ~~
+ ~ /home/corvus/.config/terminator/config                                                                                                                                                                                                   
+
+
+~~ Terminator configs ~~                                                                                                                                                                                                                    
+
+ ~~ Directory created: ~~                                                                                                                                                                                                                   
+ ~ /root/.config/terminator                                                                                                                                                                                                                 
+
+~~ Configuration file added to: ~~                                                                                                                                                                                                          
+ ~ /root/.config/terminator/config                                                                                                                                                                                                          
+
+
+~~ Bash aliases added to: ~~                                                                                                                                                                                                                
+ ~ /root/.bash_aliases                                                                                                                                                                                                                      
+
+
+~~ Zsh aliases added to: ~~                                                                                                                                                                                                                 
+ ~ /root/.oh-my-zsh/custom/aliases.zsh                                                                                                                                                                                                      
+
+
+~~ Bash aliases added to: ~~                                                                                                                                                                                                                
+ ~ /home/corvus/.bash_aliases                                                                                                                                                                                                               
+
+
+~~ Zsh aliases added to: ~~                                                                                                                                                                                                                 
+ ~ /home/corvus/.oh-my-zsh/custom/aliases.zsh                                                                                                                                                                                               
+
+ ~~ Bash aliases can be found at ~~
+
+ ~ cat ~/.bash_aliases
+
+ ~~ to update bash aliases run ~~
+
+ ~ source ~/.bash_aliases 
+
+
+~~ Zsh aliases added to: ~~
+ ~ /home/corvus/.oh-my-zsh/custom/aliases.zsh                                                                                                                                                                                               
+
+
+ ~~ Zsh aliases can be found at ~~
+
+ ~ cat ~/.oh-my-zsh/custom/aliases.zsh                                                                                                                                                                                                      
+
+ ~~ to update zsh aliases logout or run ~~                                                                                                                                                                                                  
+
+ ~ source ~/.zshrc                                                                                                                                                                                                                          
+                                                                                                                                                                                                                                            
+ Wed 04 Jan 2023 01:39:38 PM CST 
+
+ Wed 04 Jan 2023 01:39:47 PM CST 
+
+
+  Installing Fish and Oh-my-fish  
+
+
+
+ [++]  /usr/bin/fish found - root + all user shells converted to fish.  
+
+
+  ~~ Installing oh-my-fish ~~
+
+ ~~ Upon completion of oh-my-fish run ~~
+
+ ~ omf install bobthefish
+
+ ~~ If xclip is installed use SHIFT + CTRL + V ~~ 
+
+
+ Wed 04 Jan 2023 01:40:01 PM CST 
+
+
+
+ Wed 04 Jan 2023 01:40:04 PM CST 
+
+
+
+  [++] Rust is already installed, skipping installation. 
+
+  [++] Rustscan is already installed, skipping installation. 
+
+  [++] Feroxbuster is already installed, skipping installation. 
+
+
+
+  Installing Fish and Oh-my-fish  
+
+
+  Installing powerline  
+
+
+
+ ~~ Shell changed to fish. Please log out and log back in to finalize the process ~~  
+
+ ~~ Upon completion of oh-my-fish run ~~
+
+ ~ omf install bobthefish
+
+ ~~ If xclip is installed use SHIFT + CTRL + V ~~ 
+
+
+ Wed 04 Jan 2023 01:40:20 PM CST 
+
+
+
+ Wed 04 Jan 2023 01:40:27 PM CST 
+
+
+
+~~ Symbolic link created for bat: ~~
+ ~ ln -s /usr/bin/batcat /home/corvus/.local/bin/bat                                                                                                                                                                                        
+
+
+~~ Symbolic link created for bat: ~~                                                                                                                                                                                                        
+ ~ ln -s /usr/bin/batcat /usr/local/bin/bat                                                                                                                                                                                                 
+
+
+~~ Path appended to:
+ ~ /home/corvus/.config/fish/config.fish                                                                                                                                                                                                    
+
+~~ Content: ~~                                                                                                                                                                                                                              
+ 
+~ set -x PATH $PATH $HOME/.local/bin
+
+
+~~ Symbolic link created for bat: ~~
+ ~ ln -s /usr/bin/batcat /root/.local/bin/bat                                                                                                                                                                                               
+
+
+~~ Path appended to:
+ ~ /root/.config/fish/config.fish                                                                                                                                                                                                           
+
+~~ Content: ~~                                                                                                                                                                                                                              
+ 
+~ export PATH="${HOME}/.local/bin:${PATH}"
+
+
+~~ Path appended to:
+ ~ /home/corvus/.config/fish/config.fish                                                                                                                                                                                                    
+
+~~ Content: ~~                                                                                                                                                                                                                              
+ 
+~ export PATH="${HOME}/.cargo/bin:${PATH}"
+
+
+~~ Path appended to:
+ ~ /root/.bashrc                                                                                                                                                                                                                            
+
+~~ Content: ~~                                                                                                                                                                                                                              
+ 
+~ export PATH="/home/corvus/.cargo/bin:$PATH"
+
+
+~~ Path appended to:
+ ~ /root/.zshrc                                                                                                                                                                                                                             
+
+~~ Content: ~~                                                                                                                                                                                                                              
+ 
+~ export PATH="/home/corvus/.cargo/bin:$PATH"
+
+
+~~ Path appended to:
+ ~ /root/.config/fish/config.fish                                                                                                                                                                                                           
+
+~~ Content: ~~                                                                                                                                                                                                                              
+ 
+~ export PATH="/home/corvus/.cargo/bin:$PATH"
+
+~~ Configuration file added to: ~~
+ ~ /home/corvus/.config/terminator/config
+
+~~ Configuration file added to: ~~
+ ~ /root/.config/terminator/config
+
+
+~~ Bash aliases added to: ~~
+ ~ /root/.bash_aliases
+
+
+~~ Zsh aliases added to: ~~
+ ~ /root/.oh-my-zsh/custom/aliases.zsh
+
+
+~~ Fish aliases added to: ~~
+ ~ /root/.config/fish/functions
+
+ ~~ Bash aliases can be found at ~~
+
+ ~ cat ~/.bash_aliases
+
+ ~~ to update bash aliases run ~~
+
+ ~ source ~/.bash_aliases
+  
+
+
+~~ Zsh aliases added to: ~~
+ ~ /home/corvus/.oh-my-zsh/custom/aliases.zsh 
+
+
+ ~~ Zsh aliases can be found at ~~
+
+ ~ cat ~/.oh-my-zsh/custom/aliases.zsh
+
+ ~~ to update zsh aliases logout or run ~~
+
+ ~ source ~/.zshrc
+ 
+
+
+~~ Fish aliases added to: ~~
+ ~ /home/corvus/.config/fish/functions 
+
+
+ ~~ Fish aliases will be accessible immediately and can be found at ~~
+
+ ~ ls ~/.config/fish/functions
+ 
+ Wed 04 Jan 2023 01:40:29 PM CST 
+
