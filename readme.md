@@ -43,7 +43,7 @@ git clone https://github.com/0xc0rvu5/Startup_Script && cd Startup_Script/main
 	- Activates unattended-upgrades
 		- Creates a local file for /etc/apt/apt.conf.d/50unattended-upgrades here:
 			~ /etc/apt/apt.conf.d/52unattended-upgrades-local
-		- Copies ../config/02periodic to:
+		- Copies ../configs/02periodic to:
 			~ /etc/apt/apt.conf.d/02periodic
 
 	- Starts services on reboot:
