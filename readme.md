@@ -20,7 +20,7 @@ git clone https://github.com/0xc0rvu5/Startup_Script && cd Startup_Script/main
 			- apt-transport-https curl wget git xclip mlocate vim-gtk3 terminator zsh fish \
 			bat tldr
 
-	- Installs unecessary packages
+	- Installs unnecessary packages
 		- toilet figlet cowsay fortune lolcat boxes
 
 	- Adds iptables ruleset and creates a copy at ../configs/iptables.sh
