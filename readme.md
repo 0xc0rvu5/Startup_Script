@@ -197,7 +197,7 @@ git clone https://github.com/0xc0rvu5/Startup_Script && cd Startup_Script/main
 		
 ### References and inspiration from:
 	- mttaggart
-		- After completing the PMAT for TCM Security Michael got me hooked on the fish shell.
+		- After completing the PWST for TCM Security Michael got me hooked on the fish shell.
 
 	- PimpMyKali
 		- Some start up functions and ascii were referenced.
