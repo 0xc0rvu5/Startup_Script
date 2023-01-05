@@ -29,6 +29,11 @@ git clone https://github.com/0xc0rvu5/Startup_Script && cd Startup_Script/main
 		- Adds files
 			~ /usr/share/keyrings/brave-browser-archive-keyring.gpg 
 		 	~ /etc/apt/sources.list.d/brave-browser-release.list
+	
+	- Installs VSCode
+		- Adds files
+			~ /usr/share/keyrings/packages.microsoft.gpg
+			~ /etc/apt/source.list.d/vscode.list
 
 	- Installs additional packages
 		- libpam-tmpdir apt-listchanges debsums apt-show-versions sysstat auditd chkrootkit \
