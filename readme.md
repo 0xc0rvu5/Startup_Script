@@ -2,7 +2,7 @@
 
 ## Install repo
 ```bash
-git clone https://github.com/0xc0rvu5/Startup_Script && cd Startup_Script/main
+git clone https://github.com/0xc0rvu5/Startup_Scripts && cd Startup_Scripts/main
 ```
 ### Final commands:
 
