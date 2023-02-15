@@ -1,4 +1,4 @@
-# Startup Script
+# Startup Scripts
 
 ## Install repo
 ```bash
