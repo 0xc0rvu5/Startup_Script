@@ -154,7 +154,7 @@ git clone https://github.com/0xc0rvu5/Startup_Script && cd Startup_Script/main
 ![](directory_structure_after.png)
 
 ### Installing zsh and oh-my-zsh for root and user
-![](startup_script_zsh.gif)
+![Zsh Installation Video Example](https://github.com/0xc0rvu5/Startup_Scripts/blob/gif-visual-aids/startup_script_zsh.gif)
 
 #### Post zsh and oh-my-zsh install:
 ##### Root
@@ -163,7 +163,7 @@ git clone https://github.com/0xc0rvu5/Startup_Script && cd Startup_Script/main
 ![](post_zsh_user_install.png)
 
 ### Installing fish and oh-my-fish for root and user
-![](startup_script_1sh_fish.gif)
+![Fish Installation Video Example](https://github.com/0xc0rvu5/Startup_Scripts/blob/gif-visual-aids/startup_script_1sh_fish.gif)
 
 #### Post fish and oh-my-fish install:
 ##### Root
@@ -172,7 +172,7 @@ git clone https://github.com/0xc0rvu5/Startup_Script && cd Startup_Script/main
 ![](post_fish_user_install.png)
 
 ### Log file
-![](startup_script_log_file.gif)
+![Log File Video Example](https://github.com/0xc0rvu5/Startup_Scripts/blob/gif-visual-aids/startup_script_log_file.gif)
 
 ### Initial install expect user input for `iptables-persistent` and `postfix` due to `rkhunter` installation
 ![](iptables-persistent.png)
