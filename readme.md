@@ -148,37 +148,37 @@ git clone https://github.com/0xc0rvu5/Startup_Scripts && cd Startup_Scripts/main
 				
 				
 ### Directory file structure before:
-![](directory_structure_before.png)
+![](https://github.com/0xc0rvu5/Startup_Scripts/blob/gif-visual-aids/directory_structure_before.png)
 
 ### Directory file structure after:
-![](directory_structure_after.png)
+![](https://github.com/0xc0rvu5/Startup_Scripts/blob/gif-visual-aids/directory_structure_after.png)
 
 ### Installing zsh and oh-my-zsh for root and user
 [Zsh Installation Video Example](https://github.com/0xc0rvu5/Startup_Scripts/blob/gif-visual-aids/startup_script_zsh.gif)
 
 #### Post zsh and oh-my-zsh install:
 ##### Root
-![](post_zsh_root_install.png)
+![](https://github.com/0xc0rvu5/Startup_Scripts/blob/gif-visual-aids/post_zsh_root_install.png)
 ##### User
-![](post_zsh_user_install.png)
+![](https://github.com/0xc0rvu5/Startup_Scripts/blob/gif-visual-aids/post_zsh_user_install.png)
 
 ### Installing fish and oh-my-fish for root and user
 [Fish Installation Video Example](https://github.com/0xc0rvu5/Startup_Scripts/blob/gif-visual-aids/startup_script_1sh_fish.gif)
 
 #### Post fish and oh-my-fish install:
 ##### Root
-![](post_fish_root_install.png)
+![](https://github.com/0xc0rvu5/Startup_Scripts/blob/gif-visual-aids/post_fish_root_install.png)
 ##### User
-![](post_fish_user_install.png)
+![](https://github.com/0xc0rvu5/Startup_Scripts/blob/gif-visual-aids/post_fish_user_install.png)
 
 ### Log file
 [Log File Video Example](https://github.com/0xc0rvu5/Startup_Scripts/blob/gif-visual-aids/startup_script_log_file.gif)
 
 ### Initial install expect user input for `iptables-persistent` and `postfix` due to `rkhunter` installation
-![](iptables-persistent.png)
-![](iptables-persistent_2.png)
-![](postfix_configuration.png)
-![](postfix_configuration_2.png)
+![](https://github.com/0xc0rvu5/Startup_Scripts/blob/gif-visual-aids/iptables-persistent.png)
+![](https://github.com/0xc0rvu5/Startup_Scripts/blob/gif-visual-aids/iptables-persistent_2.png)
+![](https://github.com/0xc0rvu5/Startup_Scripts/blob/gif-visual-aids/postfix_configuration.png)
+![](https://github.com/0xc0rvu5/Startup_Scripts/blob/gif-visual-aids/postfix_configuration_2.png)
 				
 
 ### Tested on:
