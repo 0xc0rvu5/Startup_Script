@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "alias .alias='vi ~/.oh-my-zsh/custom/aliases.zsh > /dev/null'" | tee -a new_aliases.zsh > /dev/null
+echo "alias .alias='vi ~/.oh-my-zsh/custom/aliases.zsh'" | tee -a new_aliases.zsh > /dev/null
 echo "alias autoremove='sudo apt autoremove -y'" | tee -a new_aliases.zsh > /dev/null
 echo "alias chkrootkit='sudo chkrootkit'" | tee -a new_aliases.zsh > /dev/null
 echo "alias chmod='sudo chmod'" | tee -a new_aliases.zsh > /dev/null
